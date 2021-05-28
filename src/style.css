@@ -1,0 +1,130 @@
+.main-container{
+
+    background-color: #ffaf88;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+}
+
+#tittle{
+    color: white;
+}
+
+/*source: https://stackoverflow.com/questions/52369434/textarea-with-alternate-rows-and-line-numbers/52369720*/
+#code-input{
+    width: 100%;
+    min-height: 50%;
+    background: url(http://i.imgur.com/2cOaJ.png) top -12px left / auto no-repeat,
+    linear-gradient(#F1F1F1 50%, #F9F9F9 50%) top left / 100% 32px;
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    padding: 0 0 0 30px;
+    resize: vertical;
+    line-height: 16px;
+    font-size: 13px;
+}
+
+
+
+
+
+#one_div{
+    border: 1px solid;
+    float: right;
+    width: 48%;
+    height: 85%;
+    padding: 10px;
+    background: white;
+    margin-left: 10px;
+    margin-right: 20px;
+    border-radius: 20px;
+    overflow:hidden;
+}
+
+#two_div{
+    border: 1px solid;
+    height: 85%;
+    width: 48%;
+    background: white;
+    margin-left: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#three_div{
+    border: 1px solid;
+    width: 100%;
+    height: 10%;
+    padding-left: 10px;
+}
+
+#four_div{
+    border: 1px solid;
+    width: 100%;
+    height: 40%;
+}
+
+
+#left-sub-header{
+    border: 1px solid;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+
+}
+#left-sub-body{
+    border: 1px solid;
+    width: 100%;
+    height: 90%;
+
+}
+
+.sub-header-button{
+    margin-top: 2%;
+    border: none;
+    background-color: #df96cc;
+    border-radius: 5px;
+    color: white;
+    font-size: 30px;
+
+}
+
+#btn-center{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#btn-run{
+    background: linear-gradient(to bottom, red 0%, #ff99cc 100%);
+    border: none;
+    border: solid #ff99cc;
+    color: white;
+    margin-left: 0px;
+}
+
+#btn-reset{
+    background-color: transparent;
+    color: #df96cc;
+    border: solid #df96cc;
+}
+
+.code-editor-button{
+
+    float: left;
+    margin-top: 13px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+/* Examples*/
+.back-container{
+    background: linear-gradient(to bottom, red 0%, #ff99cc 100%);
+}
+
+.back-container{
+    background-color: #61dafb;
+}
