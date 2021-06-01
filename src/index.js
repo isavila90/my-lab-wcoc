@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './fonts/MoreSugar-Regular.ttf';
+import './fonts/glacial-indifference.regular.otf';
+import './fonts/MoreSugar-Extras.ttf';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "MoreSugar";
+  src: local("MoreSugar"),
+  url("./fonts/MoreSugar-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "GlacialIndifference";
+  src: local("GlacialIndifference"),
+  url("./fonts/glacial-indifference.regular.otf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "MoreSugarExtra";
+  src: local("MoreSugarExtra"),
+  url("./fonts/MoreSugar-Extras.ttf") format("truetype");
+  font-weight: normal;
+}
