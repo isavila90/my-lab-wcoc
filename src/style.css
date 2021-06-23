@@ -1,4 +1,4 @@
-.main-container{
+.main-container {
 
     background: linear-gradient(to bottom, #ffaf88 0%, #ff99cc 100%);
     position: fixed;
@@ -6,46 +6,91 @@
     height: 100%;
     left: 0;
     top: 0;
+    /*background-size: 100px 100px;*/
 
 }
-.text{
+
+#main-container-shelf {
+    background-size: 100px 100px;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+}
+
+.text {
     font-family: MoreSugar;
     float: right;
 
 }
-.vector{
+
+.vector {
     font-family: MoreSugarExtra;
     width: 20%;
-    float:right;
+    float: right;
 
     text-align: left;
 }
 
-.vector2{
+.vector-main-l {
+    font-family: MoreSugarExtra;
+    width: 10%;
+    float: left;
+    margin-right: 8px;
+}
+
+.vector-main-r {
+    font-family: MoreSugarExtra;
+    width: 10%;
+    float: right;
+    margin-left: 8px;
+    transform: scale(-1, 1);
+}
+
+.vector2 {
 
     font-family: MoreSugarExtra;
-    float:right;
+    float: right;
     margin-left: 2px;
     text-align: left;
 
 }
 
-.vector3{
+.vector-up{
 
     font-family: MoreSugarExtra;
-    float:right;
+    float: right;
+    margin-left: 2px;
+    text-align: left;
+    transform: rotate(180deg);
+    margin-bottom: 1000rem;
+
+}
+
+
+
+
+.vector3 {
+
+    font-family: MoreSugarExtra;
+    float: right;
     margin-left: 2px;
     text-align: left;
 
 
 }
 
-#tittle{
+#tittle {
     color: white;
 }
 
+#tittle2 {
+    color: white;
+    font-size: 100px;
+    font-family: GlacialIndifference;
+}
+
 /*source: https://stackoverflow.com/questions/52369434/textarea-with-alternate-rows-and-line-numbers/52369720*/
-#code-input{
+#code-input {
     width: 100%;
     min-height: 50%;
     background: url(http://i.imgur.com/2cOaJ.png) top -12px left / auto no-repeat,
@@ -58,7 +103,7 @@
     font-size: 13px;
 }
 
-#one_div{
+#one_div {
     float: right;
     width: 48%;
     height: 70%;
@@ -67,10 +112,10 @@
     margin-left: 10px;
     margin-right: 20px;
     border-radius: 20px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-#two_div{
+#two_div {
     height: 70%;
     width: 48%;
     background: white;
@@ -78,39 +123,42 @@
     margin-right: 10px;
     border-radius: 20px;
     padding: 10px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-#three_div{
+#three_div {
 
     width: 100%;
     height: 10%;
     padding-left: 10px;
 }
 
-#four_div{
+#four_div {
     width: 100%;
     height: 40%;
     padding-top: 2rem;
 }
 
 
-#left-sub-header{
+#left-sub-header {
     width: 100%;
     height: 15%;
     align-items: center;
 
 }
-#left-sub-body{
+
+#left-sub-body {
 
     width: 100%;
     height: 90%;
     padding: 20px;
     font-family: MoreSugar;
+    padding-bottom: 0px;
+
 
 }
 
-.left-sub-body-tittle{
+.left-sub-body-tittle {
 
     color: #5ec5bd;
     font-size: 2rem;
@@ -118,7 +166,7 @@
 
 }
 
-.sub-header-button{
+.sub-header-button {
     margin-top: 2%;
     border: none;
     background-color: #df96cc;
@@ -129,27 +177,46 @@
 
 }
 
-#btn-center{
+#btn-center {
     margin-left: 25px;
     margin-right: 25px;
 }
 
-#btn-run{
+#btn-run {
     background: linear-gradient(to bottom, #ffaf88 0%, #E95086 100%);
     border: none;
     border: solid #ff99cc;
     color: white;
     margin-left: 0px;
+    border-radius: 5px;
+    font-family: MoreSugar;
 }
 
-#btn-reset{
+#computer {
+    /*background-size: 100% 100%;*/
+    /*background-repeat: no-repeat;*/
+}
+
+#btn-reset {
     background-color: transparent;
     color: #df96cc;
     border: solid #df96cc;
     margin-left: 10px;
+    border-radius: 5px;
+    font-family: MoreSugar;
 }
 
-#btn-save{
+#btn-expand {
+    background-color: transparent;
+    color: #df96cc;
+    border: none;
+    border-radius: 5px;
+    font-family: MoreSugar;
+}
+
+
+
+#btn-save {
     background: linear-gradient(to bottom, #ffaf88 0%, #E95086 100%);
     border: none;
     border: solid #ff99cc;
@@ -159,14 +226,26 @@
     font-family: GlacialIndifference;
 }
 
-#color-pick{
+#btn-copy {
+    background: linear-gradient(to bottom, #ffaf88 0%, #E95086 100%);
+    border: none;
+    border: solid #ff99cc;
+    color: white;
+    margin-top: 0px;
+    float: right;
+    font-family: GlacialIndifference;
+    z-index: -1;
+    /*    marginTop:"-2.5rem", marginRight:"22rem"*/
+}
+
+
+#color-pick {
 
     height: 80%;
 }
 
 
-
-.code-editor-button{
+.code-editor-button {
     float: left;
     margin-top: 13px;
     font-size: 20px;
@@ -176,11 +255,46 @@
 
 }
 
+.input-box {
+    position: relative;
+
+
+}
+
+.login-input {
+    display: block;
+    border: 1px solid #d7d6d6;
+    background: #fff;
+    padding: 10px 10px 10px 50px;
+    width: 195px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.profile-input {
+    display: block;
+    border: 1px solid #d7d6d6;
+    background: #fff;
+    width: 200px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.symbol {
+    position: absolute;
+    display: block;
+    left: 5px;
+    top: 5px;
+    z-index: 9;
+    font-size: 2rem;
+    font-family: MoreSugarExtra;
+}
+
 .ReactColorPicker-module_react_color_picker__1OEfS .ReactColorPicker-module_details__106p_ .ReactColorPicker-module_hex_value__10kKY {
     min-width: 100px;
 }
 
-#top-banner{
+#top-banner {
     /*background-color: #5ec5bd;*/
     display: inline-block;
     border-radius: 5px;
@@ -190,7 +304,7 @@
     font-family: MoreSugar;
 }
 
-#preview-container{
+#preview-container {
     background: #ffaf88;
     /*background-image: url("./images/logo.png");*/
     margin-top: -1rem;
@@ -199,14 +313,24 @@
     /*background-image: url("./images/logo.png");*/
 }
 
-#preview-tittle{
+#preview-container-less2 {
+    background: white;
+    /*background-image: url("./images/logo.png");*/
+    margin-top: -1rem;
+    height: 90%;
+    width: 100%;
+    background-size: 50px 50px;
+    /*background-image: url("./images/logo.png");*/
+}
+
+#preview-tittle {
     color: white;
     font-size: 2rem;
     margin-top: 1rem;
     margin-bottom: -1rem;
 }
 
-#error-vector{
+#error-vector {
     font-family: MoreSugarExtra;
     color: black;
     font-size: 7rem;
@@ -218,7 +342,7 @@
 
 }
 
-#error-message{
+#error-message {
     font-family: MoreSugar;
     color: black;
     font-size: 2rem;
@@ -229,11 +353,377 @@
     vertical-align: middle;
 }
 
+
+.modal-backdrop {
+    background: linear-gradient(to bottom, #ffaf88 0%, #ff99cc 100%);
+}
+
+.modal-dialog {
+    position: absolute;
+    top: 170px;
+    right: 0px;
+    bottom: 0;
+    left: 0;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+
+
+}
+
+.modal-header {
+    padding: 9px 15px;
+    border-bottom: 1px solid #F6D2E0;
+    background-color: #F6D2E0;
+}
+
+.modal-body {
+    padding: 9px 15px;
+    border-bottom: 1px solid #F6D2E0;
+    background-color: #F6D2E0;
+}
+
+.modal-footer {
+    padding: 9px 15px;
+    border-bottom: 1px solid #F6D2E0;
+    background-color: #F6D2E0;
+}
+
+.modal-content {
+    border: #E95086 3px solid;
+    color: #5ec5bd;
+    font-family: MoreSugar;
+    justify-content: center;
+
+}
+
+
+.modal.visible {
+    transform: scale(1);
+
+    transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+    opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+
+
+.modal-input {
+    font-family: GlacialIndifference;
+    font-size: 2rem;
+}
+
+.close {
+    margin-right: -3rem;
+    color: #E95086;
+    font-family: MoreSugar;
+    font-size: 3rem;
+    opacity: 1;
+}
+
+
+.close:hover {
+
+    color: #5ec5bd;
+
+}
+
+.password {
+
+    width: 15rem;
+}
+
+.username {
+
+    width: 15rem;
+}
+
+.instruction-text {
+    width: 90%;
+    font-family: GlacialIndifference;
+    font-size: 1.3rem;
+    text-align: left;
+
+}
+
+.btn-login {
+    background: linear-gradient(to bottom, #ffaf88 0%, #E95086 100%);
+    border: none;
+    border: solid #E95086;
+    color: white;
+    margin-left: 0px;
+    border-radius: 5px;
+    font-family: MoreSugar;
+    font-size: 1.5rem;
+}
+
+.btn-plain {
+    background: none;
+    border: none;
+}
+
+.btn-close {
+    background: transparent;
+    border: none;
+    border: solid #E95086;
+    color: #E95086;
+    margin-left: 0px;
+    border-radius: 5px;
+    font-family: MoreSugar;
+    font-size: 1.5rem;
+
+
+}
+
+#decoration-door-prev h1 {
+    font-size: 150%;
+}
+
+#decoration-door h1 {
+    font-size: 300%;
+}
+
+#decoration-door-prev {
+    position: relative;
+    top: -320px;
+    z-index: 3;
+    width: 200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#decoration-door {
+    position: relative;
+    top: -550px;
+    z-index: 3;
+    width: 335px;
+    margin: auto;
+    font-family: MoreSugar;
+    overflow: hidden;
+}
+
+#watch {
+    background: linear-gradient(to bottom, #5ec5bd 0%, #ff99cc 100%);
+    padding: 10px;
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    border-radius: 60px;
+    z-index: 100000;
+}
+
+#watch-inside {
+    float: right;
+    top: 0px;
+    font-size: 4rem;
+    color: #5ec5bd;
+    background: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: Digital;
+    border-radius: 60px;
+}
+
+#shelf {
+    position: absolute;
+    top: 3rem;
+    right: 0rem;
+}
+
+#board {
+    position: absolute;
+    top: 15rem;
+    left: 1rem;
+    height: 22rem;
+    width: 30rem;
+    background-image: url("images/board.png");
+    border: 5px #ffaf88 solid;
+}
+
+#stand {
+    position: absolute;
+    top: 20rem;
+    right: -14rem;
+    height: 50rem;
+    width: 50rem;
+    background: url("images/stand.png") no-repeat;
+    background-size: 35rem;
+}
+
+#game {
+    position: absolute;
+    top: 3rem;
+    right: 0rem;
+    z-index: 100000;
+}
+
+#btn-left {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: transparent;
+    border: solid white;
+    font-family: MoreSugar;
+    color: white;
+    font-size: 1.5rem;
+    background: linear-gradient(to bottom, #5ec5bd 0%, #ff99cc 100%);
+    border-radius: 60px;
+}
+
+
+#btn-right {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: solid white;
+    font-family: MoreSugar;
+    color: white;
+    font-size: 1.5rem;
+    background: linear-gradient(to bottom, #5ec5bd 0%, #ff99cc 100%);
+    border-radius: 60px;
+}
+
+#btn-top {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    font-family: GlacialIndifference;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.btn-lesson {
+    background: #df96cc;
+    border: none;
+    color: white;
+    margin-left: 1%;
+    border-radius: 5px;
+    font-family: GlacialIndifference;
+    font-size: 1.8rem;
+    width: 70%;
+    height: 50%;
+    text-align: left;
+}
+
+#btn-edit {
+    background: none;
+    color: #E95086;
+    margin-top: .5rem;
+    margin-left: -1rem;
+    border-radius: 5px;
+    font-family: GlacialIndifference;
+    text-align: left;
+    border: solid #E95086;
+}
+
+#lesson-content {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    margin-top: -3rem;
+    /*margin-left: -10rem;*/
+    width: 54%;
+    /*height: 100px;*/
+}
+
+/*Transition*/
+
+.SlideIn-appear {
+    transform: translate(100%);
+}
+
+.SlideIn-appear.SlideIn-appear-active {
+    opacity: 1;
+    transform: translateX(0);;
+    transition: all 0.6s linear;
+}
+
+.SlideIn-enter {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.SlideIn-enter.SlideIn-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.2s linear 0.4s;
+}
+
+.SlideIn-leave {
+    opacity: 1.0;
+    transform: translateX(0);
+}
+
+.SlideIn-leave.SlideIn-leave-active {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    transform: translateX(-30px);
+    transition: all 0.2s linear;
+}
+
+.SlideOut-appear {
+    transform: translate(-100%);
+}
+
+.SlideOut-appear.SlideIn-appear-active {
+    opacity: 1;
+    transform: translateX(0);;
+    transition: all 0.6s linear;
+}
+
+.SlideOut-enter {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.SlideOut-enter.SlideOut-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.2s linear 0.4s;
+}
+
+.SlideOut-leave {
+    opacity: 1.0;
+    transform: translateX(0);
+}
+
+.SlideOut-leave.SlideOut-leave-active {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    transform: translateX(-30px);
+    transition: all 0.2s linear;
+}
+
+
+
+
+/*Video*/
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
 /* Examples*/
-.back-container{
+.back-container {
     background: linear-gradient(to bottom, #643cd6 0%, #ff99cc 100%);
 }
 
-.back-container{
-     background-color: #61dafb;
- }
+.back-container {
+    background-color: #61dafb;
+}
+
+

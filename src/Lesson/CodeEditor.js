@@ -9,7 +9,7 @@ import validateColor from "validate-color";
 const { validate } = require('csstree-validator');
 
 
-export default class createGroceryItem extends Component {
+export default class CodeEditor extends Component {
 
     constructor(props) {
 

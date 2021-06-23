@@ -32,3 +32,10 @@ code {
   url("./fonts/MoreSugar-Extras.ttf") format("truetype");
   font-weight: normal;
 }
+
+@font-face {
+  font-family: "Digital";
+  src: local("Digital"),
+  url("./fonts/digital-7 (mono).ttf") format("truetype");
+  font-weight: normal;
+}

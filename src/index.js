@@ -6,10 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import './fonts/MoreSugar-Regular.ttf';
 import './fonts/glacial-indifference.regular.otf';
 import './fonts/MoreSugar-Extras.ttf';
+import './fonts/digital-7 (mono).ttf';
+import {BrowserRouter as Router} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Router>
+        <App />
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
