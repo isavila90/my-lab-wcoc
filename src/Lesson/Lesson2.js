@@ -101,8 +101,8 @@ export default class Lesson2 extends Component {
 
     helpCode() {
         this.setState({
-                          code: '{\n'
-                                + 'background-image: url(\'halloween.png\');\n'
+                          code: '.back-container{\n'
+                                + 'background-image: url(\'iceCream.png\');\n'
                                 + '}',
                           message: 'Here is how your code should look like! Press "run code" and see the magic',
                           messageVec: '8',
@@ -679,6 +679,13 @@ export default class Lesson2 extends Component {
                                     </p>
                                     <img className="img-lesson" src="less23.png"
                                          style={{height: "300px"}}/>
+                                    <p style={{textAlign: "justify"}}>
+                                        Once you are happy with your color don’t forget to save
+                                        it by clicking on<img
+                                        className="img-lesson"
+                                        src="btnSave.png"
+                                        style={{height: "40px"}}/>
+                                    </p>
                                 </div>
 
                                                          : null
@@ -724,6 +731,14 @@ export default class Lesson2 extends Component {
                                         mouse a click on copy image address. After you have
                                         successfully copied substitute the word “iceCream.png” for
                                         the image address you copied.
+                                    </p>
+
+                                    <p style={{textAlign: "justify"}}>
+                                        Once you are happy with your color don’t forget to save
+                                        it by clicking on<img
+                                        className="img-lesson"
+                                        src="btnSave.png"
+                                        style={{height: "40px"}}/>
                                     </p>
 
                                 </div>

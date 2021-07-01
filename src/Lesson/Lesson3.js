@@ -91,8 +91,8 @@ export default class Lesson3 extends Component {
     }
 
     helpCode() {
-        const output = "<img src=\"decor.png\"  width=\"100%\"/>\n"
-                       + "<h1 style=\"color:purple; background:pink\">hi</h1>"
+        const output = "<img src=\"plant.png\"  width=\"100%\"/>\n"
+                       + "<h1 style=\"color:purple; background:pink\">Hello</h1>"
         this.setState({
                           code: output,
                           message: 'Here is how your code should look like! Press "run code" and see the magic',
@@ -690,11 +690,14 @@ export default class Lesson3 extends Component {
                                     </p>
                                     <p style={{textDecoration: "underline"}}>How do we use tags?</p>
                                     <p>
-                                        When we want to add an element we use a start tag, some content, and an end tag:
+                                        When we want to add an element we use a start tag, some
+                                        content, and an end tag:
                                     </p>
                                     <img className="img-lesson" src="less112.png"/>
                                     <p>
-                                        source: <a href="https://www.w3schools.com/html/html_intro.asp">w3schools: Intro to html</a>
+                                        source: <a
+                                        href="https://www.w3schools.com/html/html_intro.asp">w3schools:
+                                        Intro to html</a>
                                     </p>
                                 </div>
 
@@ -730,8 +733,41 @@ export default class Lesson3 extends Component {
                             {
                                 this.state.showPartThree ?
                                 <div className="instruction-text">
-                                    <p style={{textAlign: "justify"}}>Class here
+                                    <p style={{textAlign: "justify"}}>
+                                        For this challenge we are going to learn how to use the img
+                                        tag. This tag is going to help us add an image to our lab's
+                                        door.
+                                        The first thing we want to do is add and empty img tag:
                                     </p>
+                                    <img className="img-lesson" src="less31.png"/>
+
+                                    <p style={{textAlign: "justify"}}>
+                                        The next step is to specify what image are we going to use.
+                                        For this we use the "src=" syntax followed by the name of
+                                        the image we want to add. Let's add a plant decor by using
+                                        the following image name "plant.png".
+                                    </p>
+                                    <img className="img-lesson" src="less32.png"/>
+
+                                    <p style={{textAlign: "justify"}}>
+                                        The last step is to specify the width of the image. For this
+                                        step add the following word inside the img tag :
+                                        width="100%".Take a second
+                                        before you run your code and check that it looks like the
+                                        one below:
+                                    </p>
+                                    <img className="img-lesson" src="less33.png"/>
+
+
+                                    <p style={{textAlign: "justify"}}>
+                                        Our code is ready! Now hit the <img className="img-lesson"
+                                                                            src="btnRun.png"
+                                                                            style={{height: "40px"}}/>.
+                                        And done! This is how your preview window should look like
+                                        after you have run your code.
+                                    </p>
+                                    <img className="img-lesson" src="less34.png"
+                                         style={{height: "300px"}}/>
                                 </div>
 
                                                          : null
@@ -766,8 +802,61 @@ export default class Lesson3 extends Component {
                             {
                                 this.state.showPartFour ?
                                 <div className="instruction-text">
-                                    <p>w3schools
+                                    <p style={{textAlign: "justify"}}>
+                                        For this challenge we are going to learn how to use the h1
+                                        tag. This tag is going to help us add an a text banner to
+                                        our lab's
+                                        door.
+                                        The first thing we want to do is add and empty h1 tag:
+                                    </p>
+                                    <img className="img-lesson" src="less35.png"/>
 
+                                    <p style={{textAlign: "justify"}}>
+                                        The next step is to specify what text we want to add to the
+                                        banner.
+                                        For this we need to write whichever text you want inside the
+                                        h1 tag. Let's write hello:
+                                    </p>
+                                    <img className="img-lesson" src="less36.png"/>
+
+                                    <p style={{textAlign: "justify"}}>
+                                        Another awesome thing about h1 tabs is that you can style
+                                        them. For example, you can change the color of the letters
+                                        and the color of the background. Let's make the letters
+                                        purple for this example. You want to add the "style=" word
+                                        and then ""color:purple"". This is what your code should
+                                        look like:
+                                    </p>
+                                    <img className="img-lesson" src="less37.png"/>
+
+                                    <p style={{textAlign: "justify"}}>
+                                        For the last part let's change the color of the background
+                                        banner. For this just add the word "background:pink". Don't
+                                        forget to add ";" after the word purple. After you can
+                                        substitute any the color for any of the hex colors id from
+                                        the color picker tab. Take a second
+                                        before you run your code and check that it looks like the
+                                        one below:
+                                    </p>
+                                    <img className="img-lesson" src="less38.png"/>
+
+
+                                    <p style={{textAlign: "justify"}}>
+                                        Our code is ready! Now hit the <img className="img-lesson"
+                                                                            src="btnRun.png"
+                                                                            style={{height: "40px"}}/>.
+                                        And done! This is how your preview window should look like
+                                        after you have run your code.
+                                    </p>
+                                    <img className="img-lesson" src="less39.png"
+                                         style={{height: "300px"}}/>
+
+                                    <p style={{textAlign: "justify"}}>
+                                        Once you are happy with your color don’t forget to save
+                                        it by clicking on<img
+                                        className="img-lesson"
+                                        src="btnSave.png"
+                                        style={{height: "40px"}}/>
                                     </p>
 
                                 </div>
