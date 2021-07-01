@@ -26,7 +26,14 @@ export default class Lesson3 extends Component {
                 <h1 style="color:red; background:yellow">hi</h1>
 
             </div>,
-            html: ""
+            html: "",
+            showPartOne: false,
+            showPartTwo: false,
+            showPartThree: false,
+            showPartFour: false,
+            showPartFive: false,
+            showPartSix: false,
+            showExpand: false,
 
         }
     }
@@ -35,7 +42,7 @@ export default class Lesson3 extends Component {
         // this.setState({
         //                   user: this.props.location.state.user,
         //               })
-        try{
+        try {
             console.log("user " + JSON.stringify(this.props.location.state.user))
 
             const todoRef = firebase.database().ref("users").child(this.props.location.state.user);
@@ -47,8 +54,7 @@ export default class Lesson3 extends Component {
                               });
             });
 
-        }
-        catch {
+        } catch {
             this.props.history.push({
                                         pathname: '/redirect',
                                         state: {path: '/lesson3'}
@@ -260,7 +266,8 @@ export default class Lesson3 extends Component {
                           });
         });
         if (this.state.lesson3 == "complete.png") {
-            firebase.database().ref("users").child(this.props.location.state.user).update({decor: this.state.html});
+            firebase.database().ref("users").child(this.props.location.state.user)
+                .update({decor: this.state.html});
             this.setState({
                               showSave2: true,
                           })
@@ -318,6 +325,116 @@ export default class Lesson3 extends Component {
                                     pathname: '/lesson2',
                                     state: {user: this.props.location.state.user}
                                 })
+    }
+
+    partOneExpand() {
+
+        if (this.state.showPartOne) {
+
+            this.setState({
+                              showPartOne: false
+                          });
+        } else {
+            this.setState({
+                              showPartOne: true
+                          });
+        }
+    }
+
+    partTwoExpand() {
+
+        if (this.state.showPartTwo) {
+
+            this.setState({
+                              showPartTwo: false
+                          });
+        } else {
+            this.setState({
+                              showPartTwo: true
+                          });
+        }
+    }
+
+    partThreeExpand() {
+
+        if (this.state.showPartThree) {
+
+            this.setState({
+                              showPartThree: false
+                          });
+        } else {
+            this.setState({
+                              showPartThree: true
+                          });
+        }
+    }
+
+    partFourExpand() {
+
+        if (this.state.showPartFour) {
+
+            this.setState({
+                              showPartFour: false
+                          });
+        } else {
+            this.setState({
+                              showPartFour: true
+                          });
+        }
+    }
+
+    partFiveExpand() {
+
+        if (this.state.showPartFive) {
+
+            this.setState({
+                              showPartFive: false
+                          });
+        } else {
+            this.setState({
+                              showPartFive: true
+                          });
+        }
+    }
+
+    partSixExpand() {
+
+        if (this.state.showPartSix) {
+
+            this.setState({
+                              showPartSix: false
+                          });
+        } else {
+            this.setState({
+                              showPartSix: true
+                          });
+        }
+    }
+
+    expandAll() {
+
+        if (this.state.showExpand) {
+
+            this.setState({
+                              showExpand: false,
+                              showPartOne: false,
+                              showPartTwo: false,
+                              showPartThree: false,
+                              showPartFour: false,
+                              showPartFive: false,
+                              showPartSix: false,
+                          });
+        } else {
+            this.setState({
+                              showExpand: true,
+                              showPartOne: true,
+                              showPartTwo: true,
+                              showPartThree: true,
+                              showPartFour: true,
+                              showPartFive: true,
+                              showPartSix: true,
+                          });
+        }
     }
 
     render() {
@@ -464,13 +581,249 @@ export default class Lesson3 extends Component {
                     </div>
                     {
                         this.state.showInstructions ?
-                        <div id="left-sub-body">
-                            <h1 className="left-sub-body-tittle">Instructions</h1>
-                            <h2>Part a: Use name of color</h2>
+                        <div id="left-sub-body" style={{
+                            marginLeft: "4rem",
+                            marginRight: "3rem",
+                            overflow: "scroll",
+                            paddingBottom: "0"
+                        }}>
+                            <div className="row">
 
-                            <h2>Part b: Use hex of color</h2>
+                                <h1 className="left-sub-body-tittle" style={{
+                                    marginLeft: "12rem",
+                                    marginRight: "3rem",
+                                }}>
+                                    Instructions
+                                </h1>
+                                <button type="button" className="code-editor-button"
+                                        id="btn-save" style={{
+                                    marginTop: "-1rem", height: "2rem"
 
-                            <h2>Part c: ombre effect</h2>
+                                }} onClick={() => this.expandAll()}>
+                                    {
+                                        !this.state.showExpand ?
+                                        <div style={{
+                                            marginTop: "-0.2rem"
+                                        }}>Show all</div>
+                                                               : null}
+                                    {
+                                        this.state.showExpand ?
+                                        <div style={{
+                                            marginTop: "-0.2rem"
+                                        }}>Hide all</div>
+                                                              : null}
+                                </button>
+                            </div>
+                            {/*Part1*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>What is HTML?</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partOneExpand()}>
+                                        {
+                                            this.state.showPartOne ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                   : null
+                                        }
+                                        {
+                                            !this.state.showPartOne ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                    : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartOne ?
+                                <div className="instruction-text">
+                                    <p>HTML helps us structure our Web pages and applications. This
+                                        language allows us to use several elements to add and
+                                        organize our projects. Through it we can add text, images,
+                                        containers, and many other elements. </p>
+                                </div>
+
+                                                       : null
+                            }
+
+                            {/*Part2*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Things to know before we start</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partTwoExpand()}>
+                                        {
+                                            this.state.showPartTwo ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                   : null
+                                        }
+                                        {
+                                            !this.state.showPartTwo ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                    : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartTwo ?
+                                <div className="instruction-text">
+                                    <p style={{textDecoration: "underline"}}>How can we tell html if
+                                        we want to add and image or a text?</p>
+                                    <p>
+                                        We use “tags”. Depending on what we put into these tags is
+                                        what’s doing to tell HTML what type of element our we trying
+                                        to add.
+                                    </p>
+                                    <p style={{textDecoration: "underline"}}>How do we use tags?</p>
+                                    <p>
+                                        When we want to add an element we use a start tag, some content, and an end tag:
+                                    </p>
+                                    <img className="img-lesson" src="less112.png"/>
+                                    <p>
+                                        source: <a href="https://www.w3schools.com/html/html_intro.asp">w3schools: Intro to html</a>
+                                    </p>
+                                </div>
+
+                                                       : null
+                            }
+
+                            {/*Part3*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Challenge #1: Let's add decor using the "img" tag</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partThreeExpand()}>
+                                        {
+                                            this.state.showPartThree ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                     : null
+                                        }
+                                        {
+                                            !this.state.showPartThree ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                      : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartThree ?
+                                <div className="instruction-text">
+                                    <p style={{textAlign: "justify"}}>Class here
+                                    </p>
+                                </div>
+
+                                                         : null
+                            }
+
+                            {/*Part4*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Challenge #2: Add a banner to out door</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partFourExpand()}>
+                                        {
+                                            this.state.showPartFour ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                    : null
+                                        }
+                                        {
+                                            !this.state.showPartFour ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                     : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartFour ?
+                                <div className="instruction-text">
+                                    <p>w3schools
+
+                                    </p>
+
+                                </div>
+
+                                                        : null
+                            }
+
+                            {/*Part6*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Final Tips</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partSixExpand()}>
+                                        {
+                                            this.state.showPartSix ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                   : null
+                                        }
+                                        {
+                                            !this.state.showPartSix ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                    : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartSix ?
+                                <div className="instruction-text">
+                                    <p>If the decor of your door is not changing, don’t worry there
+                                        are a few things you can do to make sure your code has no
+                                        mistakes. CSS is very sensitive to every character you type
+                                        so if your code is not running there may be something
+                                        missing. First, check the bottom of the right screen, most
+                                        likely it will tell you what is wrong with your code. If
+                                        this doesn’t work, click on <img
+                                            className="img-lesson"
+                                            src="btnReset.png"
+                                            style={{height: "40px"}}/> and start the lesson from the
+                                        beginning. Finally, if all this fails click on <img
+                                            className="img-lesson"
+                                            src="btnHelp.png"
+                                            style={{height: "40px"}}/> and the
+                                        correct code will appear on the screen.</p>
+                                </div>
+
+                                                       : null
+                            }
+
 
                         </div>
                                                     : null

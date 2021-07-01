@@ -10,6 +10,7 @@ import Index from "./Lesson/LessonIndex";
 import Display from "./Login/Display";
 import Empty from "./Login/Empty";
 import Redirect from "./Login/Redirect";
+import newUser from "./Login/NewUserForm";
 import {AnimatedSwitch} from 'react-router-transition';
 import {
     BrowserRouter as Router,
@@ -45,6 +46,7 @@ function App() {
                         <Route exact path="/index" component={PageShell(Index)}/>
                         <Route exact path="/display" component={PageShell(Display)}/>
                         <Route exact path="/redirect" component={PageShell(Redirect)}/>
+                        <Route exact path="/newUser" component={PageShell(newUser)}/>
                     </Switch>
                 </CSSTransition>
             </TransitionGroup>

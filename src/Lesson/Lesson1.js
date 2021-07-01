@@ -33,8 +33,7 @@ export default class Lesson1 extends Component {
             showPartFour: false,
             showPartFive: false,
             showPartSix: false,
-
-
+            showExpand: false,
 
         }
     }
@@ -374,6 +373,7 @@ export default class Lesson1 extends Component {
                           });
         }
     }
+
     partFourExpand() {
 
         if (this.state.showPartFour) {
@@ -387,6 +387,7 @@ export default class Lesson1 extends Component {
                           });
         }
     }
+
     partFiveExpand() {
 
         if (this.state.showPartFive) {
@@ -415,8 +416,31 @@ export default class Lesson1 extends Component {
         }
     }
 
+    expandAll() {
 
+        if (this.state.showExpand) {
 
+            this.setState({
+                              showExpand: false,
+                              showPartOne: false,
+                              showPartTwo: false,
+                              showPartThree: false,
+                              showPartFour: false,
+                              showPartFive: false,
+                              showPartSix: false,
+                          });
+        } else {
+            this.setState({
+                              showExpand: true,
+                              showPartOne: true,
+                              showPartTwo: true,
+                              showPartThree: true,
+                              showPartFour: true,
+                              showPartFive: true,
+                              showPartSix: true,
+                          });
+        }
+    }
 
     render() {
         const {colorInput} = this.state
@@ -565,13 +589,42 @@ export default class Lesson1 extends Component {
                     </div>
                     {
                         this.state.showInstructions ?
-                        <div id="left-sub-body" style={{marginLeft: "4rem", marginRight: "3rem", overflow:"scroll", paddingBottom:"0"}}>
-                            <h1 className="left-sub-body-tittle"
-                                style={{marginLeft: "-5rem"}}>Instructions</h1>
+                        <div id="left-sub-body" style={{
+                            marginLeft: "4rem",
+                            marginRight: "3rem",
+                            overflow: "scroll",
+                            paddingBottom: "0"
+                        }}>
+                            <div className="row">
 
+                                <h1 className="left-sub-body-tittle" style={{
+                                    marginLeft: "12rem",
+                                    marginRight: "3rem",
+                                }}>
+                                    Instructions
+                                </h1>
+                                <button type="button" className="code-editor-button"
+                                        id="btn-save" style={{
+                                    marginTop: "-1rem", height: "2rem"
+
+                                }} onClick={() => this.expandAll()}>
+                                    {
+                                        !this.state.showExpand ?
+                                        <div style={{
+                                            marginTop: "-0.2rem"
+                                        }}>Show all</div>
+                                                               : null}
+                                    {
+                                        this.state.showExpand ?
+                                        <div style={{
+                                            marginTop: "-0.2rem"
+                                        }}>Hide all</div>
+                                                              : null}
+                                </button>
+                            </div>
                             {/*Part1*/}
-                            <div className="row" style={{marginTop:"1rem"}}>
-                                <div >
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
                                     <h4>What is CSS?</h4>
                                 </div>
                                 <div style={{marginTop: "-1.2rem"}}>
@@ -606,7 +659,7 @@ export default class Lesson1 extends Component {
                             }
 
                             {/*Part2*/}
-                            <div className="row" style={{marginTop:"1rem"}}>
+                            <div className="row" style={{marginTop: "1rem"}}>
                                 <div>
                                     <h4>Things to know before we start</h4>
                                 </div>
@@ -634,15 +687,20 @@ export default class Lesson1 extends Component {
                             {
                                 this.state.showPartTwo ?
                                 <div className="instruction-text">
-                                    <p>Is the language we coders use to style the look of the
-                                        websites and applications that we create.</p>
+                                    <p style={{textDecoration: "underline"}}>How do we tell CSS what
+                                        element to style?</p>
+                                    <p>
+                                        This is a very interesting question. Every element in our
+                                        webpage or application has an id that lets CSS know what
+                                        element we want to style.
+                                    </p>
                                 </div>
 
                                                        : null
                             }
 
                             {/*Part3*/}
-                            <div className="row" style={{marginTop:"1rem"}}>
+                            <div className="row" style={{marginTop: "1rem"}}>
                                 <div>
                                     <h4>Challenge #1: The basics of Css and color</h4>
                                 </div>
@@ -654,13 +712,13 @@ export default class Lesson1 extends Component {
                                             this.state.showPartThree ?
                                             <div className="vector2"
                                                  style={{marginTop: "2px"}}>]</div>
-                                                                   : null
+                                                                     : null
                                         }
                                         {
                                             !this.state.showPartThree ?
                                             <div className="vector-up"
                                                  style={{marginTop: "-3px"}}>]</div>
-                                                                    : null
+                                                                      : null
                                         }
 
                                     </button>
@@ -670,15 +728,51 @@ export default class Lesson1 extends Component {
                             {
                                 this.state.showPartThree ?
                                 <div className="instruction-text">
-                                    <p>Is the language we coders use to style the look of the
-                                        websites and applications that we create.</p>
+                                    <p style={{textAlign: "justify"}}>For this first challenge let’s
+                                        start simple! We are going to
+                                        paint our walls “purple”.
+                                        Like we said before, the first thing we want to do is
+                                        specify the name or id of the element we want to change. In
+                                        this case, the name of our wall is “back-container”. Go to
+                                        your left side and type inline “1” the name. Before we
+                                        forget we always have to add a “.” before the name of the
+                                        element. Your code should look like this:
+                                    </p>
+                                    <img className="img-lesson" src="less11.png"/>
+                                    <p style={{textAlign: "justify"}}>The second step is to add some
+                                        curly brackets ({}) that will
+                                        contain all of our style specifications. </p>
+                                    <img className="img-lesson" src="less12.png"/>
+                                    <p style={{textAlign: "justify"}}>The next part is the most
+                                        important because is where the
+                                        magic happens! We get to tell CSS the color we want to paint
+                                        our walls. First, write on line 2 the word “background”,
+                                        this will tell the application we are trying to change the
+                                        style of the background for the “back-container element”,
+                                        then we write the name of the color we want to use, in this
+                                        case, “purple” followed by a semi-colon (;). Take a second
+                                        before you run your code and check that it looks like the
+                                        one below:</p>
+                                    <img className="img-lesson" src="less13.png"/>
+                                    <p style={{textAlign: "justify"}}>
+                                        Our code is ready! Now hit the <img className="img-lesson"
+                                                                            src="btnRun.png"
+                                                                            style={{height: "40px"}}/>.
+                                        And done! We have a
+                                        beautiful purple wall. If you want to see a preview of your
+                                        wall, click on the Preview button on the top of the left
+                                        screen. This is how your preview window should look like
+                                        after you have run your code.
+                                    </p>
+                                    <img className="img-lesson" src="less14.png"
+                                         style={{height: "300px"}}/>
                                 </div>
 
-                                                       : null
+                                                         : null
                             }
 
                             {/*Part4*/}
-                            <div className="row" style={{marginTop:"1rem"}}>
+                            <div className="row" style={{marginTop: "1rem"}}>
                                 <div>
                                     <h4>Challenge #2: Using Hex colors</h4>
                                 </div>
@@ -690,13 +784,13 @@ export default class Lesson1 extends Component {
                                             this.state.showPartFour ?
                                             <div className="vector2"
                                                  style={{marginTop: "2px"}}>]</div>
-                                                                   : null
+                                                                    : null
                                         }
                                         {
                                             !this.state.showPartFour ?
                                             <div className="vector-up"
                                                  style={{marginTop: "-3px"}}>]</div>
-                                                                    : null
+                                                                     : null
                                         }
 
                                     </button>
@@ -706,33 +800,74 @@ export default class Lesson1 extends Component {
                             {
                                 this.state.showPartFour ?
                                 <div className="instruction-text">
-                                    <p>Is the language we coders use to style the look of the
-                                        websites and applications that we create.</p>
+                                    <p>Now that we have successfully change the color of our walls
+                                        let's practice another way of specifying the color in CSS.
+                                        For this second challenge, we are going to use what is
+                                        called “Hex color”.
+
+                                    </p>
+                                    <p style={{textDecoration: "underline"}}>What is a "Hex
+                                        color"?</p>
+                                    <p>This is a representation of colors
+                                        using a 6-digit combination of numbers and letters. </p>
+
+                                    <p style={{textDecoration: "underline"}}>What do
+                                        these numbers represent? </p>
+                                    <p>Well, they define the mix of red,
+                                        green, and blue. You can observe how the hex colors work by
+                                        clicking on the Color Picker button on the top of the left
+                                        screen.</p>
+
+                                    <img className="img-lesson" src="less15.png"
+                                         style={{height: "300px"}}/>
+
+                                    <p>For our challenge let’s paint our walls turquoise. The hex
+                                        color for turquoise is #3cd6bf. You can use the code from
+                                        the previous challenge, just
+                                        substitute the word “purple” for #3cd6bf:</p>
+                                    <img className="img-lesson" src="less16.png"/>
+                                    <p> When you are done hit <img
+                                        className="img-lesson"
+                                        src="btnRun.png"
+                                        style={{height: "40px"}}/>.</p>
+                                    <img className="img-lesson" src="less17.png"
+                                         style={{height: "300px"}}/>
+
+                                    <p> You can try any color you want! Just substitute the word
+                                        “purple” with any color you want! Just type the name of your
+                                        favorite color like “red”, “blue”, “yellow” or use the color
+                                        picker to find the hex of the color, and don’t forget to hit
+                                        run. Once you are happy with your color don’t forget to save
+                                        it by clicking on<img
+                                            className="img-lesson"
+                                            src="btnSave.png"
+                                            style={{height: "40px"}}/>.</p>
+
                                 </div>
 
-                                                       : null
+                                                        : null
                             }
 
                             {/*Part5*/}
-                            <div className="row" style={{marginTop:"1rem"}}>
+                            <div className="row" style={{marginTop: "1rem"}}>
                                 <div>
                                     <h4>Challenge #3: Creating an ombre effect</h4>
                                 </div>
                                 <div style={{marginTop: "-1.2rem"}}>
                                     <button type="button" className="code-editor-button"
                                             id="btn-expand" style={{height: "2.2rem"}}
-                                            onClick={() => this.partTwoExpand()}>
+                                            onClick={() => this.partFiveExpand()}>
                                         {
-                                            this.state.showPartTwo ?
+                                            this.state.showPartFive ?
                                             <div className="vector2"
                                                  style={{marginTop: "2px"}}>]</div>
-                                                                   : null
+                                                                    : null
                                         }
                                         {
-                                            !this.state.showPartTwo ?
+                                            !this.state.showPartFive ?
                                             <div className="vector-up"
                                                  style={{marginTop: "-3px"}}>]</div>
-                                                                    : null
+                                                                     : null
                                         }
 
                                     </button>
@@ -740,32 +875,56 @@ export default class Lesson1 extends Component {
 
                             </div>
                             {
-                                this.state.showPartTwo ?
+                                this.state.showPartFive ?
                                 <div className="instruction-text">
-                                    <p>Is the language we coders use to style the look of the
-                                        websites and applications that we create.</p>
+                                    <p>For our final challenge let's try to paint or walls ombre (2
+                                        colors). For this step, you need to choose 2 colors. Let’s
+                                        use the 2 colors we use in challenges #1 and #2. Instead of
+                                        writing just the color in our code, we need to write the
+                                        following word “linear-gradient” followed by an open and
+                                        closed parenthesis (). </p>
+                                    <img className="img-lesson" src="less18.png"
+                                         style={{height: "100px"}}/>
+                                    <p>Inside the parenthesis, we first need to code the orientation
+                                        of our ombre effect, let us do a vertical effect. Write the
+                                        words “to bottom” inside the parenthesis followed by a comma
+                                        (,) then we have to give the first color in our case
+                                        “purple” followed by “0%” and another come (,). This last
+                                        part is what’s going to allow CSS to make the ombre
+                                        magic.</p>
+                                    <img className="img-lesson" src="less19.png"/>
+                                    <p>Last but not least we type the second color #3cd6bf followed
+                                        by “100%”. </p>
+                                    <img className="img-lesson" src="less110.png"/>
+                                    <p>We are finished, now <img
+                                        className="img-lesson"
+                                        src="btnRun.png"
+                                        style={{height: "40px"}}/>, and let us see our amazing ombre
+                                        wall.</p>
+                                    <img className="img-lesson" src="less111.png"
+                                         style={{height: "300px"}}/>
                                 </div>
 
-                                                       : null
+                                                        : null
                             }
 
                             {/*Part6*/}
-                            <div className="row" style={{marginTop:"1rem"}}>
+                            <div className="row" style={{marginTop: "1rem"}}>
                                 <div>
                                     <h4>Final Tips</h4>
                                 </div>
                                 <div style={{marginTop: "-1.2rem"}}>
                                     <button type="button" className="code-editor-button"
                                             id="btn-expand" style={{height: "2.2rem"}}
-                                            onClick={() => this.partTwoExpand()}>
+                                            onClick={() => this.partSixExpand()}>
                                         {
-                                            this.state.showPartTwo ?
+                                            this.state.showPartSix ?
                                             <div className="vector2"
                                                  style={{marginTop: "2px"}}>]</div>
                                                                    : null
                                         }
                                         {
-                                            !this.state.showPartTwo ?
+                                            !this.state.showPartSix ?
                                             <div className="vector-up"
                                                  style={{marginTop: "-3px"}}>]</div>
                                                                     : null
@@ -776,10 +935,23 @@ export default class Lesson1 extends Component {
 
                             </div>
                             {
-                                this.state.showPartTwo ?
+                                this.state.showPartSix ?
                                 <div className="instruction-text">
-                                    <p>Is the language we coders use to style the look of the
-                                        websites and applications that we create.</p>
+                                    <p>If the color of your walls is not changing, don’t worry there
+                                        are a few things you can do to make sure your code has no
+                                        mistakes. CSS is very sensitive to every character you type
+                                        so if your code is not running there may be something
+                                        missing. First, check the bottom of the right screen, most
+                                        likely it will tell you what is wrong with your code. If
+                                        this doesn’t work, click on <img
+                                            className="img-lesson"
+                                            src="btnReset.png"
+                                            style={{height: "40px"}}/> and start the lesson from the
+                                        beginning. Finally, if all this fails click on <img
+                                            className="img-lesson"
+                                            src="btnHelp.png"
+                                            style={{height: "40px"}}/> and the
+                                        correct code will appear on the screen.</p>
                                 </div>
 
                                                        : null

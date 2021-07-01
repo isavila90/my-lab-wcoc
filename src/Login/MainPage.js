@@ -31,6 +31,7 @@ export default class MainPage extends Component {
             showAnnouncement: false,
             showPuzzle: false,
             showAnswer: false,
+            privilege: false,
 
         }
     }
@@ -54,8 +55,25 @@ export default class MainPage extends Component {
                                   username: snapshot.val().username,
                                   lastName: snapshot.val().lastName,
                                   email: snapshot.val().email,
+                                  instructor: snapshot.val().instructor,
 
                               });
+                // console.log("instructor " + this.state.instructor);
+                // if (this.state.instructor) {
+                //     this.setState({
+                //
+                //                       privilege: true,
+                //
+                //                   });
+                // } else {
+                //     this.setState({
+                //
+                //                       privilege: false,
+                //
+                //                   });
+                // }
+                //
+                // console.log("pri " + this.state.privilege);
             });
 
             setInterval(function () {
@@ -85,6 +103,7 @@ export default class MainPage extends Component {
                           showAnswer: true,
                       });
     }
+
     hideAnswer() {
         this.setState({
                           showAnswer: false,
@@ -153,6 +172,17 @@ export default class MainPage extends Component {
                                 })
     }
 
+    goToNewUser() {
+
+        this.props.history.push({
+                                    pathname: '/newUser',
+                                    state: {
+                                        user: this.props.location.state.user,
+                                        animation: "SlideIn"
+                                    }
+                                })
+    }
+
     openExitLesson() {
         this.setState({
                           exitConfirmation: true
@@ -214,6 +244,20 @@ export default class MainPage extends Component {
                           showAnnouncement: false
                       });
     }
+
+createUI() {
+    console.log("instructor " + this.state.instructor);
+        if(this.state.instructor == true) {
+
+            return (
+                <button id="btn-new-user" onClick={() => this.goToNewUser()}>
+                    Create new user
+                </button>
+            )
+        }
+    return;
+
+}
 
     render() {
         const {username} = this.state
@@ -432,13 +476,14 @@ export default class MainPage extends Component {
                             number should replace the question mark In The Circle Below ?
                         </h3>
                         <img width="50%"
-                            src="https://gpuzzles.com/images/riddles/which-number-should-replace-the-question-mark-In-The-Circle-Below-501.jpg"/>
+                             src="https://gpuzzles.com/images/riddles/which-number-should-replace-the-question-mark-In-The-Circle-Below-501.jpg"/>
 
 
                         {
                             this.state.showAnswer ?
                             <div>
-                                <button id="btn-edit" style={{position:"absolute", marginLeft:"5rem"}}
+                                <button id="btn-edit"
+                                        style={{position: "absolute", marginLeft: "5rem"}}
                                         onClick={() => this.hideAnswer()}>Hide answer
                                 </button>
                                 <h2 style={{
@@ -453,8 +498,9 @@ export default class MainPage extends Component {
                                 </h5>
 
                             </div>
-                                                          :  <button id="btn-edit"
-                                                                     onClick={() => this.getAnswer()}>Get answer
+                                                  : <button id="btn-edit"
+                                                            onClick={() => this.getAnswer()}>Get
+                                                      answer
                             </button>}
                         <div className="modal-footer">
                             <button className="btn-login" onClick={() => this.closePuzzle()}>Close
@@ -471,6 +517,14 @@ export default class MainPage extends Component {
                     <div className="vector-main-r">=</div>
                     Go to lessons
                 </button>
+                {this.createUI()}
+                {/*{*/}
+                {/*    this.state.privilege ?*/}
+                {/*    <button id="btn-new-user" onClick={() => this.goToNewUser()}>*/}
+                {/*        Create new user*/}
+                {/*    </button>*/}
+                {/*                         : null*/}
+                {/*}*/}
 
                 <div id="game" style={{marginTop: "6rem", right: "60px"}}>
                     <button className="btn-plain" onClick={() => this.openProfile()}>

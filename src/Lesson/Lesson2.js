@@ -23,6 +23,13 @@ export default class Lesson2 extends Component {
             code: '',
             message: 'Run your code to watch the color of the walls change',
             messageVec: '8',
+            showPartOne: false,
+            showPartTwo: false,
+            showPartThree: false,
+            showPartFour: false,
+            showPartFive: false,
+            showPartSix: false,
+            showExpand: false,
 
         }
     }
@@ -46,15 +53,13 @@ export default class Lesson2 extends Component {
 
                               });
             });
-        }
-        catch{
+        } catch {
             this.props.history.push({
                                         pathname: '/redirect',
                                         state: {path: '/lesson2'}
                                     })
         }
     }
-
 
     handleInputCode = (event) => {
         event.preventDefault();
@@ -168,11 +173,10 @@ export default class Lesson2 extends Component {
                               showSave2: true,
                           })
         } else {
-                this.setState({
-                                  showSave: true,
-                              });
+            this.setState({
+                              showSave: true,
+                          });
         }
-
 
     }
 
@@ -225,6 +229,116 @@ export default class Lesson2 extends Component {
                                     pathname: '/lesson3',
                                     state: {user: this.props.location.state.user}
                                 })
+    }
+
+    partOneExpand() {
+
+        if (this.state.showPartOne) {
+
+            this.setState({
+                              showPartOne: false
+                          });
+        } else {
+            this.setState({
+                              showPartOne: true
+                          });
+        }
+    }
+
+    partTwoExpand() {
+
+        if (this.state.showPartTwo) {
+
+            this.setState({
+                              showPartTwo: false
+                          });
+        } else {
+            this.setState({
+                              showPartTwo: true
+                          });
+        }
+    }
+
+    partThreeExpand() {
+
+        if (this.state.showPartThree) {
+
+            this.setState({
+                              showPartThree: false
+                          });
+        } else {
+            this.setState({
+                              showPartThree: true
+                          });
+        }
+    }
+
+    partFourExpand() {
+
+        if (this.state.showPartFour) {
+
+            this.setState({
+                              showPartFour: false
+                          });
+        } else {
+            this.setState({
+                              showPartFour: true
+                          });
+        }
+    }
+
+    partFiveExpand() {
+
+        if (this.state.showPartFive) {
+
+            this.setState({
+                              showPartFive: false
+                          });
+        } else {
+            this.setState({
+                              showPartFive: true
+                          });
+        }
+    }
+
+    partSixExpand() {
+
+        if (this.state.showPartSix) {
+
+            this.setState({
+                              showPartSix: false
+                          });
+        } else {
+            this.setState({
+                              showPartSix: true
+                          });
+        }
+    }
+
+    expandAll() {
+
+        if (this.state.showExpand) {
+
+            this.setState({
+                              showExpand: false,
+                              showPartOne: false,
+                              showPartTwo: false,
+                              showPartThree: false,
+                              showPartFour: false,
+                              showPartFive: false,
+                              showPartSix: false,
+                          });
+        } else {
+            this.setState({
+                              showExpand: true,
+                              showPartOne: true,
+                              showPartTwo: true,
+                              showPartThree: true,
+                              showPartFour: true,
+                              showPartFive: true,
+                              showPartSix: true,
+                          });
+        }
     }
 
     render() {
@@ -375,13 +489,297 @@ export default class Lesson2 extends Component {
                     </div>
                     {
                         this.state.showInstructions ?
-                        <div id="left-sub-body">
-                            <h1 className="left-sub-body-tittle">Instructions</h1>
-                            <h2>Part a: Use name of color</h2>
+                        <div id="left-sub-body" style={{
+                            marginLeft: "4rem",
+                            marginRight: "3rem",
+                            overflow: "scroll",
+                            paddingBottom: "0"
+                        }}>
+                            <div className="row">
 
-                            <h2>Part b: Use hex of color</h2>
+                                <h1 className="left-sub-body-tittle" style={{
+                                    marginLeft: "12rem",
+                                    marginRight: "3rem",
+                                }}>
+                                    Instructions
+                                </h1>
+                                <button type="button" className="code-editor-button"
+                                        id="btn-save" style={{
+                                    marginTop: "-1rem", height: "2rem"
 
-                            <h2>Part c: ombre effect</h2>
+                                }} onClick={() => this.expandAll()}>
+                                    {
+                                        !this.state.showExpand ?
+                                        <div style={{
+                                            marginTop: "-0.2rem"
+                                        }}>Show all</div>
+                                                               : null}
+                                    {
+                                        this.state.showExpand ?
+                                        <div style={{
+                                            marginTop: "-0.2rem"
+                                        }}>Hide all</div>
+                                                              : null}
+                                </button>
+                            </div>
+                            {/*Part1*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>What is CSS?</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partOneExpand()}>
+                                        {
+                                            this.state.showPartOne ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                   : null
+                                        }
+                                        {
+                                            !this.state.showPartOne ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                    : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartOne ?
+                                <div className="instruction-text">
+                                    <p>Is the language we coders use to style the look of the
+                                        websites and applications that we create.</p>
+                                </div>
+
+                                                       : null
+                            }
+
+                            {/*Part2*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Things to know before we start</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partTwoExpand()}>
+                                        {
+                                            this.state.showPartTwo ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                   : null
+                                        }
+                                        {
+                                            !this.state.showPartTwo ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                    : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartTwo ?
+                                <div className="instruction-text">
+                                    <p style={{textDecoration: "underline"}}>How do we tell CSS what
+                                        element to style?</p>
+                                    <p>
+                                        This is a very interesting question. Every element in our
+                                        webpage or application has an id that lets CSS know what
+                                        element we want to style.
+                                    </p>
+                                </div>
+
+                                                       : null
+                            }
+
+                            {/*Part3*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Challenge #1: let's add an image to our wallpaper</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partThreeExpand()}>
+                                        {
+                                            this.state.showPartThree ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                     : null
+                                        }
+                                        {
+                                            !this.state.showPartThree ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                      : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartThree ?
+                                <div className="instruction-text">
+                                    <p style={{textAlign: "justify"}}>For this first challenge let’s
+                                        add a pre-saved image from our app! We are going to create
+                                        an ice-cream wallpaper.
+                                        Like we said before, the first thing we want to do is
+                                        specify the name or id of the element we want to change. In
+                                        this case, the name of our wall is “back-container”. Go to
+                                        your left side and type inline “1” the name. Before we
+                                        forget we always must add a “.” before the name of the
+                                        element. Your code should look like this:
+
+                                    </p>
+                                    <img className="img-lesson" src="less11.png"/>
+                                    <p style={{textAlign: "justify"}}>The second step is to add some
+                                        curly brackets ({}) that will
+                                        contain all of our style specifications. </p>
+                                    <img className="img-lesson" src="less12.png"/>
+
+
+                                    <p style={{textAlign: "justify"}}>The next part is the most
+                                        important because is where the magic happens! We get to tell
+                                        CSS the image we want to add to our walls. First, write on
+                                        line 2 the word “background-image”, this will tell the
+                                        application we are trying to add an image to the background
+                                        of the “back-container element”, then you want to add the
+                                        following word: “url(‘’);”. Your code should look like this:
+                                    </p>
+                                    <img className="img-lesson" src="less21.png"/>
+
+                                    <p style={{textAlign: "justify"}}> The next step is to add the
+                                        name of the image inside the URL parenthesis. Since we are
+                                        creating an ice-cream wallpaper add the word “iceCream.png”.
+                                        Take a second
+                                        before you run your code and check that it looks like the
+                                        one below:
+                                    </p>
+                                    <img className="img-lesson" src="less22.png"/>
+
+
+                                    <p style={{textAlign: "justify"}}>
+                                        Our code is ready! Now hit the <img className="img-lesson"
+                                                                            src="btnRun.png"
+                                                                            style={{height: "40px"}}/>.
+                                        And done! We have a
+                                        beautiful ice-cream wallpaper. If you want to see a preview
+                                        of your
+                                        wall, click on the Preview button on the top of the left
+                                        screen. This is how your preview window should look like
+                                        after you have run your code.
+                                    </p>
+                                    <img className="img-lesson" src="less23.png"
+                                         style={{height: "300px"}}/>
+                                </div>
+
+                                                         : null
+                            }
+
+                            {/*Part4*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Challenge #2: Let's choose an image from internet</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partFourExpand()}>
+                                        {
+                                            this.state.showPartFour ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                    : null
+                                        }
+                                        {
+                                            !this.state.showPartFour ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                     : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartFour ?
+                                <div className="instruction-text">
+
+                                    <p style={{textAlign: "justify"}}>
+                                        The great thing about CSS is that we can choose whatever
+                                        image we want for our background. For this challenge let’s
+                                        pick an image from the internet. Go to your favorite search
+                                        engine a find search for an image you want to add to your
+                                        wallpaper. After you have found the image, you want to add
+                                        to you wallpaper you can click the right button of your
+                                        mouse a click on copy image address. After you have
+                                        successfully copied substitute the word “iceCream.png” for
+                                        the image address you copied.
+                                    </p>
+
+                                </div>
+
+                                                        : null
+                            }
+
+                            {/*Part6*/}
+                            <div className="row" style={{marginTop: "1rem"}}>
+                                <div>
+                                    <h4>Final Tips</h4>
+                                </div>
+                                <div style={{marginTop: "-1.2rem"}}>
+                                    <button type="button" className="code-editor-button"
+                                            id="btn-expand" style={{height: "2.2rem"}}
+                                            onClick={() => this.partSixExpand()}>
+                                        {
+                                            this.state.showPartSix ?
+                                            <div className="vector2"
+                                                 style={{marginTop: "2px"}}>]</div>
+                                                                   : null
+                                        }
+                                        {
+                                            !this.state.showPartSix ?
+                                            <div className="vector-up"
+                                                 style={{marginTop: "-3px"}}>]</div>
+                                                                    : null
+                                        }
+
+                                    </button>
+                                </div>
+
+                            </div>
+                            {
+                                this.state.showPartSix ?
+                                <div className="instruction-text">
+                                    <p>If the image of your walls is not changing, don’t worry there
+                                        are a few things you can do to make sure your code has no
+                                        mistakes. CSS is very sensitive to every character you type
+                                        so if your code is not running there may be something
+                                        missing. First, check the bottom of the right screen, most
+                                        likely it will tell you what is wrong with your code. If
+                                        this doesn’t work, click on <img
+                                            className="img-lesson"
+                                            src="btnReset.png"
+                                            style={{height: "40px"}}/> and start the lesson from the
+                                        beginning. Finally, if all this fails click on <img
+                                            className="img-lesson"
+                                            src="btnHelp.png"
+                                            style={{height: "40px"}}/> and the
+                                        correct code will appear on the screen.</p>
+                                </div>
+
+                                                       : null
+                            }
+
 
                         </div>
                                                     : null
